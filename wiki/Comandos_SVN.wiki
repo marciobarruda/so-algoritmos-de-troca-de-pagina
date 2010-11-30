@@ -1,0 +1,3 @@
+ # svn checkout https://so-algoritmos-de-troca-de-pagina.googlecode.com/svn/trunk/ WC-so-algoritmos-de-troca-de-pagina --username racruvido
+ # svn export https://so-algoritmos-de-troca-de-pagina.googlecode.com/svn/trunk/ EXP-so-algoritmos-de-troca-de-pagina
+ # svn commit -m "Mensagem"
