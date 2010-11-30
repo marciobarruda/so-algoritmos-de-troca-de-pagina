@@ -21,8 +21,18 @@ public abstract class ReplacementAlgorithm
 
 	protected void imprimirFrameBuffer()
 	{
+		System.out.print("[");		
 		for (int i=0 ; i<FrameBufferSize ; i++)
-		return pageFaultCount;
+		{
+			if (FrameBuffer[i] == -1)
+				System.out.print("_");
+			else
+				System.out.print(FrameBuffer[i]);
+			//Não exibir a virgula depois do último número:
+			if (i != (FrameBufferSize-1))
+				System.out.print(",");
+		}
+		System.out.print("]\n");
 	}
 
 	public int getPageFaultCount()

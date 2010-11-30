@@ -31,14 +31,12 @@ public class FIFO extends ReplacementAlgorithm
 			if (FrameBuffer[i] == pageNumber)
 				return;
 		}
-
 		// Se chegar aqui, a página não está no Frame Buffer.
 		// Carregá-la e contar um pagefault.
 		FrameBuffer[iteratorFrameBuffer] = pageNumber;
 		iterator_proximo();
 		//Incrementando o contador de pagefaults:
 		pageFaultCount++;
-		
-		//System.out.print(this.iteratorFrameBuffer);
+		imprimirFrameBuffer();
 	}
 }
