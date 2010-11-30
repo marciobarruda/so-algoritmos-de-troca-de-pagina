@@ -1,22 +1,28 @@
 public abstract class ReplacementAlgorithm
 {
 	protected int pageFaultCount; //Contador de pagefaults.
-	protected int pageFrameCount; //Tamanho do FrameBuffer.
+	protected int FrameBufferSize; //Tamanho do FrameBuffer.
 	protected int FrameBuffer[];  //Vetor do FrameBuffer.
 
 	// Construtor:
-	public ReplacementAlgorithm (int pageFrameCount)
+	public ReplacementAlgorithm(int FrameBufferSize)
 	{
-		if (pageFrameCount < 0)
+		if (FrameBufferSize < 0)
 			throw new IllegalArgumentException();
 		// Inicializando o contador de pagefaults:
 		pageFaultCount = 0;
 
 		// Instanciando vetor do FrameBuffer:
-		this.pageFrameCount = pageFrameCount;
-		FrameBuffer = new int[pageFrameCount];
-		for (int i=0 ; i<pageFrameCount ; i++)
+		this.FrameBufferSize = FrameBufferSize;
+		FrameBuffer = new int[FrameBufferSize];
+		for (int i=0 ; i<FrameBufferSize ; i++)
 			FrameBuffer[i] = -1; //"-1" significa que a página está vazia.
+	}
+
+	protected void imprimirFrameBuffer()
+	{
+		for (int i=0 ; i<FrameBufferSize ; i++)
+		return pageFaultCount;
 	}
 
 	public int getPageFaultCount()
@@ -26,7 +32,7 @@ public abstract class ReplacementAlgorithm
 
 	public int getPageFrameCount()
 	{
-		return pageFrameCount;
+		return FrameBufferSize;
 	}
 
 	public abstract void insert (int pageNumber);
