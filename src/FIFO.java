@@ -2,18 +2,17 @@ public class FIFO extends ReplacementAlgorithm
 {
 	private int iteratorFrameBuffer;
 
-	public FIFO(int pageFrameCount)
+	public FIFO(int FrameBufferSize)
 	{
-		super(pageFrameCount);
+		super(FrameBufferSize);
 		iteratorFrameBuffer = 0;
-
 	}
 
 	private void iterator_proximo()
 	{
-		//Se iterator estiver na última posição...
+		//Se iterator estiver na ï¿½ltima posiï¿½ï¿½o...
 		if (iteratorFrameBuffer == (FrameBufferSize-1))
-			iteratorFrameBuffer = 0; //...ele volta para a 1ª posição.
+			iteratorFrameBuffer = 0; //...ele volta para a 1ï¿½ posiï¿½ï¿½o.
 		else
 			iteratorFrameBuffer++; //Incrementa normalmente.
 	}
@@ -21,18 +20,18 @@ public class FIFO extends ReplacementAlgorithm
 	@Override
 	public void insert(int pageNumber)
 	{
-		// Checar se a página esta no Frame Buffer:
+		// Checar se a pï¿½gina esta no Frame Buffer:
 		for (int i=0 ; i<FrameBufferSize ; i++)
 		{
-			// Achou uma posição vazia no Frame Buffer.
+			// Achou uma posiï¿½ï¿½o vazia no Frame Buffer.
 			if (FrameBuffer[i] == -1)
 				break;
-			// Se achar a página:
+			// Se achar a pï¿½gina:
 			if (FrameBuffer[i] == pageNumber)
 				return;
 		}
-		// Se chegar aqui, a página não está no Frame Buffer.
-		// Carregá-la e contar um pagefault.
+		// Se chegar aqui, a pï¿½gina nï¿½o estï¿½ no Frame Buffer.
+		// Carregï¿½-la e contar um pagefault.
 		FrameBuffer[iteratorFrameBuffer] = pageNumber;
 		iterator_proximo();
 		//Incrementando o contador de pagefaults:
