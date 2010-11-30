@@ -8,8 +8,11 @@
 public class Test
 {
 	public static void main(String[] args) {
-		PageGenerator ref = new PageGenerator();
-		int[] referenceString = ref.getReferenceString();
+		//PageGenerator ref = new PageGenerator();
+		//int referenceString[] = ref.getReferenceString();
+
+		// String do livro. Pg: 196.
+		int referenceString[] = {7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1};
 
 		ReplacementAlgorithm fifo = new FIFO(3);
 
@@ -19,7 +22,6 @@ public class Test
 			//System.out.println("inserting " + referenceString[i]);
 			fifo.insert(referenceString[i]);
 		}
-
 
 		// report the total number of page faults
 		System.out.println("\nFIFO faults = " + fifo.getPageFaultCount());
