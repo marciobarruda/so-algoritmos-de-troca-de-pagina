@@ -20,8 +20,8 @@ public class FIFO extends ReplacementAlgorithm
 	@Override
 	public void insert(int pageNumber)
 	{
-		// Checar se a p�gina esta no Frame Buffer:
-		for (int i=0 ; i<FrameBufferSize ; i++)
+		// Checar se a p�gina está no Frame Buffer:
+		for (int i=0 ; i<this.getPageFrameCount() ; i++)
 		{
 			// Achou uma posi��o vazia no Frame Buffer.
 			if (FrameBuffer[i] == -1)

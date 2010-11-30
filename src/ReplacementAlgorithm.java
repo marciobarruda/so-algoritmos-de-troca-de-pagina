@@ -1,8 +1,8 @@
 public abstract class ReplacementAlgorithm
 {
 	protected int pageFaultCount;  //Contador de pagefaults.
-	protected int FrameBufferSize; //Tamanho do FrameBuffer.
-	protected int FrameBuffer[];   //Vetor do FrameBuffer.
+	protected int FrameBufferSize; //Tamanho do Frame Buffer.
+	protected int FrameBuffer[];   //Vetor do Frame Buffer.
 
 	// Construtor:
 	public ReplacementAlgorithm(int FrameBufferSize)
