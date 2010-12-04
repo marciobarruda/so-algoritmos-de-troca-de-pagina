@@ -1,3 +1,4 @@
+package page_generator;
 /**
  * This class generates page references ranging from 0 .. 9
  *
