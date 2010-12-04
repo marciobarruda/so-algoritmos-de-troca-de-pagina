@@ -21,6 +21,18 @@ public class LRU extends ReplacementAlgorithm
 		this.tempo_acesso[posicaoFrameBuffer] = tempo;
 	}
 
+	// Retorna o indice do menor tempo de acesso no vetor tempo_acesso[]:
+	private int menorTempo()
+	{
+		int indice_menor = 0;
+		for (int i=1 ; i<this.getPageFrameCount() ; i++)
+		{
+			if (this.tempo_acesso[i] < this.tempo_acesso[indice_menor])
+				indice_menor = i;
+		}
+		return indice_menor;
+	}
+
 	@Override
 	public void insert(int pageNumber)
 	{	
@@ -47,6 +59,11 @@ public class LRU extends ReplacementAlgorithm
 			//Incrementando o contador de pagefaults:
 			pageFaultCount++;
 		}
-		
+		// Se chegar aqui, a página não está no Frame Buffer e este está cheio.
+		int indice = this.menorTempo();
+		FrameBuffer[indice] = pageNumber;
+		this.incrementarTempo(indice);
+		//Incrementando o contador de pagefaults:
+		pageFaultCount++;
 	}
 }
