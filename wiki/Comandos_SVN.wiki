@@ -1,4 +1,7 @@
+==Comandos SVN no terminal==
  # clear;svn checkout https://so-algoritmos-de-troca-de-pagina.googlecode.com/svn/trunk/ WC-so-algoritmos-de-troca-de-pagina --username racruvido
  # clear;svn export https://so-algoritmos-de-troca-de-pagina.googlecode.com/svn/trunk/ EXP-so-algoritmos-de-troca-de-pagina
  # clear;svn commit -m "Mensagem"
  # clear;svn status
+
+==[http://www.ibm.com/developerworks/br/library/os-ecl-subversion/ Como Usar Subversion com o Eclipse]==
