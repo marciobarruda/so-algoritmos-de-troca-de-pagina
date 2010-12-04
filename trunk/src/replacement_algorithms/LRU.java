@@ -58,6 +58,8 @@ public class LRU extends ReplacementAlgorithm
 			iteratorFrameBuffer++;
 			//Incrementando o contador de pagefaults:
 			pageFaultCount++;
+			imprimirFrameBuffer();
+			return;
 		}
 		// Se chegar aqui, a página não está no Frame Buffer e este está cheio.
 		int indice = this.menorTempo();
@@ -65,5 +67,6 @@ public class LRU extends ReplacementAlgorithm
 		this.incrementarTempo(indice);
 		//Incrementando o contador de pagefaults:
 		pageFaultCount++;
+		imprimirFrameBuffer();
 	}
 }
