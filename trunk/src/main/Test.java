@@ -1,3 +1,7 @@
+package main;
+import replacement_algorithms.FIFO;
+import replacement_algorithms.ReplacementAlgorithm;
+
 /**
  * Test harness for LRU and FIFO page replacement algorithms
  *

@@ -1,3 +1,4 @@
+package replacement_algorithms;
 public abstract class ReplacementAlgorithm
 {
 	protected int pageFaultCount;  //Contador de pagefaults.

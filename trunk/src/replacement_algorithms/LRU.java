@@ -1,3 +1,4 @@
+package replacement_algorithms;
 public class LRU extends ReplacementAlgorithm
 {
 	private int iteratorFrameBuffer;
