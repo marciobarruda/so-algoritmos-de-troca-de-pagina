@@ -3,31 +3,31 @@ public class LRU extends ReplacementAlgorithm
 {
 	private int iteratorFrameBuffer;
 	private int tempo;           //Vari√°vel para guardar o tempo global.
-	private int tempo_acesso[];  //Vetor com a "data" de acesso para cada posi√ß√£o do Frame Buffer.
+	private int tempoDeUso[];  //Vetor com a "data" de acesso para cada posi√ß√£o do Frame Buffer.
 
 	public LRU(int FrameBufferSize)
 	{
 		super(FrameBufferSize);
 		iteratorFrameBuffer = 0;
 		tempo = 1;
-		tempo_acesso = new int[this.getPageFrameCount()];
+		tempoDeUso = new int[this.getPageFrameCount()];
 		for (int i=0 ; i<this.getPageFrameCount() ; i++)
-			tempo_acesso[i] = 0;
+			tempoDeUso[i] = 0;
 	}
 
-	private void incrementarTempo(int posicaoFrameBuffer)
+	private void incrementarTempoDeUso(int posicaoFrameBuffer)
 	{
 		this.tempo++;
-		this.tempo_acesso[posicaoFrameBuffer] = tempo;
+		this.tempoDeUso[posicaoFrameBuffer] = tempo;
 	}
 
-	// Retorna o indice do menor tempo de acesso no vetor tempo_acesso[]:
+	// Retorna o indice do menor tempo de uso (mais antigo) no vetor tempoDeUso[]:
 	private int menorTempo()
 	{
 		int indice_menor = 0;
 		for (int i=1 ; i<this.getPageFrameCount() ; i++)
 		{
-			if (this.tempo_acesso[i] < this.tempo_acesso[indice_menor])
+			if (this.tempoDeUso[i] < this.tempoDeUso[indice_menor])
 				indice_menor = i;
 		}
 		return indice_menor;
@@ -45,26 +45,25 @@ public class LRU extends ReplacementAlgorithm
 			// Se achar a p√°gina:
 			if (FrameBuffer[i] == pageNumber)
 			{
-				incrementarTempo(i);
+				incrementarTempoDeUso(i);
 				return;
 			}
 		}
-		// Se chegar aqui, a p√°gina n√£o est√° no Frame Buffer.
-		// Se ainda existir espa√ßo vazio no Frame Buffer...
+		// Se chegar aqui, a p·gina n„o est· no Frame Buffer.
+		// Checar se ainda existe espaÁo vazio no Frame Buffer...
 		if (iteratorFrameBuffer < this.getPageFrameCount())
 		{
 			FrameBuffer[iteratorFrameBuffer] = pageNumber;
-			incrementarTempo(iteratorFrameBuffer);
+			incrementarTempoDeUso(iteratorFrameBuffer);
 			iteratorFrameBuffer++;
-			//Incrementando o contador de pagefaults:
-			pageFaultCount++;
-			imprimirFrameBuffer();
-			return;
 		}
-		// Se chegar aqui, a p·gina n„o est· no Frame Buffer e este est· cheio.
-		int indice = this.menorTempo();
-		FrameBuffer[indice] = pageNumber;
-		this.incrementarTempo(indice);
+		else // Se o Frame Buffer estiver cheio...
+		{
+			// Seleciona a posiÁ„o do Frame Buffer cuja a p·gina È a mais antiga:
+			int indice = this.menorTempo();
+			FrameBuffer[indice] = pageNumber;
+			this.incrementarTempoDeUso(indice);
+		}
 		//Incrementando o contador de pagefaults:
 		pageFaultCount++;
 		imprimirFrameBuffer();
