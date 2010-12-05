@@ -4,4 +4,4 @@
  # clear;svn commit -m "Mensagem"
  # clear;svn status
 
-==[http://www.ibm.com/developerworks/br/library/os-ecl-subversion/ Como Usar Subversion com o Eclipse]==
+==[http://subclipse.tigris.org/servlets/ProjectProcess;jsessionid=6923E80E39D92189D4CA90ECC33ACDB5?pageID=p4wYuA Subversion com o Eclipse (Download and Install)]==
