@@ -1,4 +1,5 @@
 package main;
+import page_generator.PageGenerator;
 import replacement_algorithms.LRU;
 import replacement_algorithms.ReplacementAlgorithm;
 
@@ -23,7 +24,7 @@ public class Test_LRU
 		// output a message when inserting a page
 		for (int i = 0; i < referenceString.length; i++)
 		{
-			//System.out.println("inserting " + referenceString[i]);
+			System.out.println("inserting " + referenceString[i]);
 			lru.insert(referenceString[i]);
 		}
 
