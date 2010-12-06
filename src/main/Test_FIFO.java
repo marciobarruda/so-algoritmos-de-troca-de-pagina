@@ -1,4 +1,5 @@
 package main;
+import page_generator.PageGenerator;
 import replacement_algorithms.FIFO;
 import replacement_algorithms.ReplacementAlgorithm;
 
@@ -18,15 +19,8 @@ public class Test_FIFO
 		// String do livro. Pg: 196.
 		int referenceString[] = {7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1};
 
-		ReplacementAlgorithm fifo = new FIFO(3);
-
-		// output a message when inserting a page
-		for (int i = 0; i < referenceString.length; i++)
-		{
-			//System.out.println("inserting " + referenceString[i]);
-			fifo.insert(referenceString[i]);
-		}
-
+		ReplacementAlgorithm fifo = new FIFO(3,referenceString);
+		fifo.executar();
 		// report the total number of page faults
 		System.out.println("\nFIFO faults = " + fifo.getPageFaultCount());
 	}

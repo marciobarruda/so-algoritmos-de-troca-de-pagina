@@ -3,37 +3,42 @@ public class FIFO extends ReplacementAlgorithm
 {
 	private int iteratorFrameBuffer;
 
-	public FIFO(int FrameBufferSize)
+	public FIFO(int FrameBufferSize, int referenceString[])
 	{
-		super(FrameBufferSize);
+		super(FrameBufferSize, referenceString);
 		iteratorFrameBuffer = 0;
 	}
 
 	private void iterator_proximo()
 	{
-		//Se iterator estiver na �ltima posi��o...
+		//Se iterator estiver na ultima posicao...
 		if (iteratorFrameBuffer == (FrameBufferSize-1))
-			iteratorFrameBuffer = 0; //...ele volta para a 1� posi��o.
+			iteratorFrameBuffer = 0; //...ele volta para a 1a posicao.
 		else
 			iteratorFrameBuffer++; //Incrementa normalmente.
 	}
 
 	@Override
-	public void insert(int pageNumber)
+	public void insert(int pageIndex)
 	{
-		// Checar se a p�gina está no Frame Buffer:
+		// Checando se "pageIndex" esta dentro dos limites do vetor "referenceString":
+		if ((pageIndex < 0) || (pageIndex >= referenceStringSize))
+			throw new IllegalArgumentException();
+
+		// Checar se a pagina esta no Frame Buffer:
 		for (int i=0 ; i<this.getPageFrameCount() ; i++)
 		{
-			// Achou uma posi��o vazia no Frame Buffer.
+			// Achou uma posicao vazia no Frame Buffer.
 			if (FrameBuffer[i] == -1)
 				break;
-			// Se achar a p�gina:
-			if (FrameBuffer[i] == pageNumber)
+			// Se achar a pagina:
+			if (FrameBuffer[i] == referenceString[pageIndex])
 				return;
 		}
-		// Se chegar aqui, a p�gina n�o est� no Frame Buffer.
-		// Carreg�-la e contar um pagefault.
-		FrameBuffer[iteratorFrameBuffer] = pageNumber;
+
+		// Se chegar aqui, a pagina nao esta no Frame Buffer.
+		// Carrega-la e contar um pagefault.
+		FrameBuffer[iteratorFrameBuffer] = referenceString[pageIndex];
 		iterator_proximo();
 		//Incrementando o contador de pagefaults:
 		pageFaultCount++;

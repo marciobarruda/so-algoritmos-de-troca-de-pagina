@@ -5,9 +5,9 @@ public class LRU extends ReplacementAlgorithm
 	private int tempo;           //Vari√°vel para guardar o tempo global.
 	private int tempoDeUso[];  //Vetor com a "data" de acesso para cada posi√ß√£o do Frame Buffer.
 
-	public LRU(int FrameBufferSize)
+	public LRU(int FrameBufferSize, int referenceString[])
 	{
-		super(FrameBufferSize);
+		super(FrameBufferSize, referenceString);
 		iteratorFrameBuffer = 0;
 		tempo = 1;
 		tempoDeUso = new int[this.getPageFrameCount()];
@@ -34,26 +34,31 @@ public class LRU extends ReplacementAlgorithm
 	}
 
 	@Override
-	public void insert(int pageNumber)
+	public void insert(int pageIndex)
 	{	
-		// Checar se a p√°gina est√° no Frame Buffer:
+		// Checando se "pageIndex" esta dentro dos limites do vetor "referenceString":
+		if ((pageIndex < 0) || (pageIndex >= referenceStringSize))
+			throw new IllegalArgumentException();
+
+		// Checar se a pagina esta no Frame Buffer:
 		for (int i=0 ; i<this.getPageFrameCount() ; i++)
 		{
-			// Achou uma posi√ß√£o vazia no Frame Buffer.
+			// Achou uma posicao vazia no Frame Buffer.
 			if (FrameBuffer[i] == -1)
 				break;
-			// Se achar a p√°gina:
-			if (FrameBuffer[i] == pageNumber)
+			// Se achar a pagina:
+			if (FrameBuffer[i] == referenceString[pageIndex])
 			{
 				incrementarTempoDeUso(i);
 				return;
 			}
 		}
+
 		// Se chegar aqui, a p·gina n„o est· no Frame Buffer.
 		// Checar se ainda existe espaÁo vazio no Frame Buffer...
 		if (iteratorFrameBuffer < this.getPageFrameCount())
 		{
-			FrameBuffer[iteratorFrameBuffer] = pageNumber;
+			FrameBuffer[iteratorFrameBuffer] = referenceString[pageIndex];
 			incrementarTempoDeUso(iteratorFrameBuffer);
 			iteratorFrameBuffer++;
 		}
@@ -61,7 +66,7 @@ public class LRU extends ReplacementAlgorithm
 		{
 			// Seleciona a posiÁ„o do Frame Buffer cuja a p·gina È a mais antiga:
 			int indice = this.menorTempo();
-			FrameBuffer[indice] = pageNumber;
+			FrameBuffer[indice] = referenceString[pageIndex];
 			this.incrementarTempoDeUso(indice);
 		}
 		//Incrementando o contador de pagefaults:
