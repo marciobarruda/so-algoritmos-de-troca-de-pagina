@@ -1,5 +1,4 @@
 package replacement_algorithms;
-
 public class MFU extends FU
 {
 	public MFU(int FrameBufferSize, int referenceString[])
