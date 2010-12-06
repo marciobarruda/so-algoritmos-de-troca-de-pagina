@@ -1,23 +1,29 @@
 package replacement_algorithms;
 public abstract class ReplacementAlgorithm
 {
-	protected int pageFaultCount;  //Contador de pagefaults.
-	protected int FrameBufferSize; //Tamanho do Frame Buffer.
-	protected int FrameBuffer[];   //Vetor do Frame Buffer.
+	protected int pageFaultCount;      //Contador de pagefaults.
+	protected int FrameBufferSize;     //Tamanho do Frame Buffer.
+	protected int FrameBuffer[];       //Vetor do Frame Buffer.
+	protected int referenceString[];   //Vetor para a String de Referencia.
+	protected int referenceStringSize; //Tamanho da String de Referencia.
 
 	// Construtor:
-	public ReplacementAlgorithm(int FrameBufferSize)
+	public ReplacementAlgorithm(int FrameBufferSize, int referenceString[])
 	{
 		if (FrameBufferSize < 0)
 			throw new IllegalArgumentException();
 		// Inicializando o contador de pagefaults:
 		this.pageFaultCount = 0;
 
-		// Instanciando vetor do FrameBuffer:
+		// Vetor para a String de Referencia:
+		this.referenceStringSize = referenceString.length;
+		this.referenceString = referenceString;
+
+		// Instanciando o vetor do FrameBuffer:
 		this.FrameBufferSize = FrameBufferSize;
 		this.FrameBuffer = new int[FrameBufferSize];
 		for (int i=0 ; i<FrameBufferSize ; i++)
-			this.FrameBuffer[i] = -1; //"-1" significa que a pï¿½gina estï¿½ vazia.
+			this.FrameBuffer[i] = -1; //"-1" significa que a pagina está vazia.
 	}
 
 	protected void imprimirFrameBuffer()
@@ -29,7 +35,7 @@ public abstract class ReplacementAlgorithm
 				System.out.print("_");
 			else
 				System.out.print(this.FrameBuffer[i]);
-			//Nï¿½o exibir a virgula depois do ï¿½ltimo nï¿½mero:
+			//Nao exibir a virgula depois do ultimo numero:
 			if (i != (this.FrameBufferSize-1))
 				System.out.print(",");
 		}
@@ -46,5 +52,14 @@ public abstract class ReplacementAlgorithm
 		return this.FrameBufferSize;
 	}
 
-	public abstract void insert (int pageNumber);
+	public void executar()
+	{
+		for (int i = 0; i < referenceStringSize; i++)
+		{
+			System.out.println("> Inserindo página: " + referenceString[i]);
+			this.insert(i);
+		}
+	}
+
+	public abstract void insert(int pageIndex);
 }
