@@ -2,8 +2,8 @@ package replacement_algorithms;
 public class LRU extends ReplacementAlgorithm
 {
 	private int iteratorFrameBuffer;
-	private int tempo;           //Variável para guardar o tempo global.
-	private int tempoDeUso[];  //Vetor com a "data" de acesso para cada posição do Frame Buffer.
+	private int tempo;          //Variavel para guardar o tempo global.
+	private int tempoDeUso[];   //Vetor com a "data" de acesso para cada posicao do Frame Buffer.
 
 	public LRU(int FrameBufferSize, int referenceString[])
 	{
