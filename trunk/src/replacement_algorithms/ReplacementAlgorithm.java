@@ -2,6 +2,7 @@ package replacement_algorithms;
 public abstract class ReplacementAlgorithm
 {
 	protected int pageFaultCount;      //Contador de pagefaults.
+	protected int iteratorFrameBuffer; //Iterator usado para colocar páginas no Frame Buffer quando este ainda nao esta cheio ainda.
 	protected int FrameBufferSize;     //Tamanho do Frame Buffer.
 	protected int FrameBuffer[];       //Vetor do Frame Buffer.
 	protected int referenceString[];   //Vetor para a String de Referencia.

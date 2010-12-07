@@ -2,7 +2,6 @@
 package replacement_algorithms;
 public abstract class FU extends ReplacementAlgorithm
 {
-	private int iteratorFrameBuffer;
 	protected int contador[];
 
 	public FU(int FrameBufferSize, int referenceString[])
