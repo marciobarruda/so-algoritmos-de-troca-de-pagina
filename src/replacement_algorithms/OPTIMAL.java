@@ -2,8 +2,6 @@
 package replacement_algorithms;
 public class OPTIMAL extends ReplacementAlgorithm
 {
-	private int iteratorFrameBuffer;
-	
 	public OPTIMAL(int FrameBufferSize, int referenceString[])
 	{
 		super(FrameBufferSize, referenceString);

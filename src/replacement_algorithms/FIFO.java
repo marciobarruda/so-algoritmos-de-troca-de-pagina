@@ -2,8 +2,6 @@
 package replacement_algorithms;
 public class FIFO extends ReplacementAlgorithm
 {
-	private int iteratorFrameBuffer;
-
 	public FIFO(int FrameBufferSize, int referenceString[])
 	{
 		super(FrameBufferSize, referenceString);
