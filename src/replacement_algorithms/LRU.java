@@ -1,3 +1,4 @@
+/*** LRU - Least Recently Used ***/
 package replacement_algorithms;
 public class LRU extends ReplacementAlgorithm
 {

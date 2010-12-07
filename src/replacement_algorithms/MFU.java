@@ -1,3 +1,4 @@
+/*** MFU - Most Frequently Used ***/
 package replacement_algorithms;
 public class MFU extends FU
 {

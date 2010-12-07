@@ -1,3 +1,4 @@
+/*** LFU - Least Frequently Used ***/
 package replacement_algorithms;
 public class LFU extends FU
 {

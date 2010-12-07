@@ -1,3 +1,4 @@
+/*** OPTIMAL ***/
 package replacement_algorithms;
 public class OPTIMAL extends ReplacementAlgorithm
 {
@@ -53,12 +54,12 @@ public class OPTIMAL extends ReplacementAlgorithm
 
 			// Inicializando o vetor "posicao[]":
 			for (int i=0 ; i<this.getPageFrameCount() ; i++)
-				posicao[i] = 0;
+				posicao[i] = this.referenceStringSize;
 
 			for (int i=0 ; i<this.getPageFrameCount() ; i++)
 			{
 				int j;
-				for (j=0 ; j<this.getPageFrameCount() ; j++){}
+				for (j=(pageIndex+1) ; j<this.referenceStringSize ; j++)
 				{
 					if (FrameBuffer[i] == referenceString[j])
 					{
