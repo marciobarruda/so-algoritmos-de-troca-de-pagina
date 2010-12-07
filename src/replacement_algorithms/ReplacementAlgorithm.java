@@ -2,7 +2,7 @@ package replacement_algorithms;
 public abstract class ReplacementAlgorithm
 {
 	protected int pageFaultCount;      //Contador de pagefaults.
-	protected int iteratorFrameBuffer; //Iterator usado para colocar páginas no Frame Buffer quando este ainda nao esta cheio ainda.
+	protected int iteratorFrameBuffer; //Iterator usado para colocar pï¿½ginas no Frame Buffer quando este ainda nao esta cheio ainda.
 	protected int FrameBufferSize;     //Tamanho do Frame Buffer.
 	protected int FrameBuffer[];       //Vetor do Frame Buffer.
 	protected int referenceString[];   //Vetor para a String de Referencia.
@@ -24,10 +24,10 @@ public abstract class ReplacementAlgorithm
 		this.FrameBufferSize = FrameBufferSize;
 		this.FrameBuffer = new int[FrameBufferSize];
 		for (int i=0 ; i<FrameBufferSize ; i++)
-			this.FrameBuffer[i] = -1; //"-1" significa que a pagina está vazia.
+			this.FrameBuffer[i] = -1; //"-1" significa que a pagina estï¿½ vazia.
 	}
 
-	protected void imprimirFrameBuffer()
+	protected void imprimirFrameBuffer()//{}
 	{
 		System.out.print("[");		
 		for (int i=0 ; i<this.FrameBufferSize ; i++)
@@ -57,7 +57,7 @@ public abstract class ReplacementAlgorithm
 	{
 		for (int i = 0; i < referenceStringSize; i++)
 		{
-			System.out.println("> Inserindo página: " + referenceString[i]);
+			//System.out.println("> Inserindo pagina: " + referenceString[i]);
 			this.insert(i);
 		}
 	}
