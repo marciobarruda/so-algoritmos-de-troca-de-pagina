@@ -1,3 +1,4 @@
+/*** FIFO - First In, First Out ***/
 package replacement_algorithms;
 public class FIFO extends ReplacementAlgorithm
 {
