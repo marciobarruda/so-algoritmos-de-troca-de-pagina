@@ -1,7 +1,7 @@
 ==Comandos SVN no terminal==
  # clear;svn checkout https://so-algoritmos-de-troca-de-pagina.googlecode.com/svn/trunk/ WC-so-algoritmos-de-troca-de-pagina --username racruvido
- # clear;svn export https://so-algoritmos-de-troca-de-pagina.googlecode.com/svn/trunk/ EXP-so-algoritmos-de-troca-de-pagina
  # clear;svn commit -m "Mensagem"
  # clear;svn status
+ # clear;svn export https://so-algoritmos-de-troca-de-pagina.googlecode.com/svn/trunk/ EXP-so-algoritmos-de-troca-de-pagina
 
 ==[http://subclipse.tigris.org/servlets/ProjectProcess;jsessionid=6923E80E39D92189D4CA90ECC33ACDB5?pageID=p4wYuA Subversion com o Eclipse (Download and Install)]==
