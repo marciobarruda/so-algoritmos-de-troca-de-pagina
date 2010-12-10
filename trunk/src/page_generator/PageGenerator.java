@@ -10,7 +10,7 @@ package page_generator;
 public class PageGenerator
 {
 	private static final int DEFAULT_SIZE = 100; //Padr�o: 100
-	private static final int RANGE = 9; //Padr�o: 9
+	private static final int RANGE = 999; //Padr�o: 9
 
 	int[] referenceString;
 

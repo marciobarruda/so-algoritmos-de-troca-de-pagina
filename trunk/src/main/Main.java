@@ -69,7 +69,7 @@ public class Main
 		for (int i=0 ; i<tamanhos_de_FrameBuffer.length ; i++)
 			System.out.print(tamanhos_de_FrameBuffer[i]+"\t");
 		System.out.println();
-		for (int i=0 ; i<tamanhos_de_FrameBuffer.length ; i++)
+		for (int i=0 ; i<valores_de_PageFaults.length ; i++)
 			System.out.print(valores_de_PageFaults[i]+"\t");
 
 		System.out.println("\n* FIFO:");
@@ -82,7 +82,7 @@ public class Main
 		for (int i=0 ; i<tamanhos_de_FrameBuffer.length ; i++)
 			System.out.print(tamanhos_de_FrameBuffer[i]+"\t");
 		System.out.println();
-		for (int i=0 ; i<tamanhos_de_FrameBuffer.length ; i++)
+		for (int i=0 ; i<valores_de_PageFaults.length ; i++)
 			System.out.print(valores_de_PageFaults[i]+"\t");
 
 		System.out.println("\n* LRU:");
@@ -95,7 +95,7 @@ public class Main
 		for (int i=0 ; i<tamanhos_de_FrameBuffer.length ; i++)
 			System.out.print(tamanhos_de_FrameBuffer[i]+"\t");
 		System.out.println();
-		for (int i=0 ; i<tamanhos_de_FrameBuffer.length ; i++)
+		for (int i=0 ; i<valores_de_PageFaults.length ; i++)
 			System.out.print(valores_de_PageFaults[i]+"\t");
 
 		System.out.println("\n* MFU:");
@@ -108,7 +108,7 @@ public class Main
 		for (int i=0 ; i<tamanhos_de_FrameBuffer.length ; i++)
 			System.out.print(tamanhos_de_FrameBuffer[i]+"\t");
 		System.out.println();
-		for (int i=0 ; i<tamanhos_de_FrameBuffer.length ; i++)
+		for (int i=0 ; i<valores_de_PageFaults.length ; i++)
 			System.out.print(valores_de_PageFaults[i]+"\t");
 
 		System.out.println("\n* LFU:");
@@ -121,7 +121,7 @@ public class Main
 		for (int i=0 ; i<tamanhos_de_FrameBuffer.length ; i++)
 			System.out.print(tamanhos_de_FrameBuffer[i]+"\t");
 		System.out.println();
-		for (int i=0 ; i<tamanhos_de_FrameBuffer.length ; i++)
+		for (int i=0 ; i<valores_de_PageFaults.length ; i++)
 			System.out.print(valores_de_PageFaults[i]+"\t");
 	}
 }
