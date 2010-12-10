@@ -27,8 +27,8 @@ public abstract class ReplacementAlgorithm
 			this.FrameBuffer[i] = -1; //"-1" significa que a pagina est� vazia.
 	}
 
-	protected void imprimirFrameBuffer()//{}
-	{
+	protected void imprimirFrameBuffer()
+	{}/*
 		System.out.print("[");		
 		for (int i=0 ; i<this.FrameBufferSize ; i++)
 		{
@@ -41,7 +41,7 @@ public abstract class ReplacementAlgorithm
 				System.out.print(",");
 		}
 		System.out.print("]\n");
-	}
+	}*/
 
 	public int getPageFaultCount()
 	{
